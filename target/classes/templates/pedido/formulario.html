@@ -1,0 +1,45 @@
+<html>
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: logo}"></div>
+	<div class="container">
+		<div th:replace="~{base :: titulo('Novo Pedido')}"></div>
+		<div class="card mt-5">
+			<form th:object="${reqNovoPedido}" action="/pedido/novo"
+				method="POST" class="card-body">
+				<div class="mb-3">
+					<label for="nomeProduto">Produto</label> <input
+						th:field="*{nomeProduto}" class="form-control"
+						placeholder="nome do produto" required />
+					<div id="emailHelp" class="form-text">Infoma qual o nome do
+						produto.</div>
+
+
+					<div class="mb-3">
+						<label for="urlProduto">Url</label> <input class="form-control"
+							th:field="*{urlProduto}"
+							placeholder="url do produto" required />
+						<div id="emailHelp" class="form-text">Procure em um site o
+							produto que você deseja e cole a url da página aqui.</div>
+					</div>
+
+					<div class="mb-3">
+						<label for="urlImagem">Imagem</label> <input
+							th:field="*{urlImagem}" class="form-control"
+							placeholder="url da imagem" required />
+						<div id="emailHelp" class="form-text">Copie a url de uma boa
+							imagem do produto e coloque a qui para conseguir compradores.</div>
+					</div>
+
+					<div class="mb-3">
+						<label for="descricao">Descrição</label>
+						<textarea th:field="*{descricao}" class="form-control"
+							name="descricao"
+							placeholder="Adicione detalhes importantes para o comprador."></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
